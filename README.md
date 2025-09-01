@@ -1,7 +1,6 @@
 # Brainfuck Tunnel - Psiphon Pro Go Version - SploitMod/Dtruth
 
-...
-
+Read Everything here man
 
 Requirements
 ------------
@@ -25,23 +24,23 @@ Method 2
 Method 3 (Already have the Zip and you have root file browsing access)
 -------
 # Drop the Zip in to the below folder
-/data/data/com.termux/files/usr/bin/
+    /data/data/com.termux/files/usr/bin/
 
 # Change directory to the bin folder
-cd /data/data/com.termux/files/usr/bin/
+    cd /data/data/com.termux/files/usr/bin/
 
 # unzip the shit yo
-unzip psiphon.zip && chmod +x * 
+    unzip psiphon.zip && chmod +x * 
 
 ## Manually activate the tunnel (You can create a script to do this, maybe we do it later)
-tun -c 4 -tw 12 -r us -l 250 -f "*" -w "*:*"
+    tun -c 4 -tw 12 -r us -l 250 -f "*" -w "*:*"
 
 #### SPECIFIC FOR SOCKSDROID ONLY
 # Move the auto script to a new name of login
-mv auto login
+    mv auto login
 
 # Optionally then type below to launch (This is currently for SocksDroid)
-login 
+    login 
 
 
 Note 1 - ### SOCKSDROID
