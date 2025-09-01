@@ -1,0 +1,40 @@
+{
+	"ProxyRotator": {
+		"Port": "3080"
+	},
+	"Inject": {
+		"Enable": true,
+		"Type": 2,
+		"Port": "8989",
+		"Rules": {
+			"akamai.net:80": [
+				"video.iflix.com",
+				"videocdn-2.iflix.com",
+				"iflix-videocdn-p1.akamaized.net",
+				"iflix-videocdn-p2.akamaized.net",
+				"iflix-videocdn-p3.akamaized.net",
+				"iflix-videocdn-p6.akamaized.net",
+				"iflix-videocdn-p7.akamaized.net",
+				"iflix-videocdn-p8.akamaized.net"
+			]
+		},
+		"Payload": "",
+		"ServerNameIndication": "twitter.com",
+		"MeekType": 0,
+		"Timeout": 5,
+		"ShowLog": false
+	},
+	"PsiphonCore": 4,
+	"Psiphon": {
+		"CoreName": "psiphon-tunnel-core",
+		"Tunnel": 1,
+		"Region": "",
+		"Protocols": [
+			"FRONTED-MEEK-HTTP-OSSH",
+			"FRONTED-MEEK-OSSH"
+		],
+		"TunnelWorkers": 6,
+		"KuotaDataLimit": 4,
+		"Authorizations": []
+	}
+}
