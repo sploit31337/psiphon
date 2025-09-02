@@ -34,11 +34,11 @@ Method 3 (Already have the Zip and you have root file browsing access)
 
 **# unzip the shit yo**
 
-    unzip psiphon.zip && chmod +x * 
+    unzip -o psiphon.zip && chmod +x *
 
 **## Manually activate the tunnel (You can create a script to do this, maybe we do it later)**
 
-    tun -c 4 -tw 12 -r us -l 250 -f "*" -w "*:*"
+    tun -c 4 -tw 6 -r us -l 4 -f "*" -w "*:*"
 
 
 **### SPECIFIC TO SOCKSDROID ###**
