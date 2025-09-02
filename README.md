@@ -1,4 +1,4 @@
-# Psiphon - SploitMod/Dtruth - BF Tunnel
+# Psiphon - Sploit/Dtruth - BF Tunnel Mod
 
 Read Everything here man
 
