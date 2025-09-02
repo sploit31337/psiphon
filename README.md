@@ -36,7 +36,7 @@ Method 3 (Already have the Zip and you have root file browsing access)
 
     unzip -o psiphon.zip && chmod +x *
 
-**## Manually activate the tunnel (You can create a script to do this, maybe we do it later)**
+**## You can then Manually activate the tunnel with the following - But we have other options below. READ BELOW
 
     tun -c 4 -tw 6 -r us -l 4 -f "*" -w "*:*"
 
@@ -62,7 +62,7 @@ Termux will automatically look for a binar executable file called "login".
 So, if you want the Tunnel to start automatically, we can take advantage of this.
 
 # USAGE:
-    p-installauto.mybind   	
+    p-installauto.mybin
 This installs the Auto System for Whichever app you have installed and It Also has a remove option to remove the system
 
 
@@ -90,20 +90,21 @@ So What do we do?
 So instead of using a Proxy App, we will use a REAL Vpn Tunnel such as OpenVPN. The Problem is OpenVPN Connect doesn't support Socks5. However, "OpenVPN For Android" a custom Android OpenVPN App does. We can then use this version of OpenVPN to tunnel Via Port 443 (One of Psiphons Allowed Ports) to a 443 Capable VPN service (Like NordVPN) we then are Double VPN'd, meaning that the "OpenVPN for Android" app initiates a connection through the Psiphon Proxy address at 127.0.0.1 on Port 3080, connects to NordVPN and then Every Single App is then Directly tunneled through NordVPN as if they are directly connected to a very secure internet connection, and no longer at the mercy of Psiphon
 
 
-Note 4 - Additional Commands
+Note 4 - Secondary Command Reference (Edit this later to update to newer Stuff)
 ----
 ### Commands (In the /data/data/com.termux/files/usr/bin directory)
 
-p-cleanup.mybin  ### This is for cleaning up the entire installation (Removing it)
+    p-cleanup.mybin
+This is for cleaning up the entire installation (Removing it)
 
-p-menu.mybin	## This is a general menu for manually starting the tunnel with a few options right now
+    p-menu.mybin
+This is a general menu for manually starting the tunnel with a few options right now
 
-p-installauto.mybind   ## This installs the Auto System for Whichever app you have installed
-			## It Also has a remove option to remove the system
-
-p-auto-tunvar.mybin    ### This file is what contains the string for how the tunnel gets executed with whichever autofile you selected
-			# It can be edited to change what you want to automatically start the tunnel with
-			# right now the default is (tun -c 4 -tw 6 -r us -l 4 -f "*" -w "*:*")
-			# This Applies to ALL tunnels you install as Auto, because those files SOURCE this file
-
-
+    p-auto-tunvar.mybin
+This file is what contains the string for how the tunnel gets executed with whichever autofile you selected
+It can be edited to change what you want to automatically start the tunnel with
+right now the default is (tun -c 4 -tw 6 -r us -l 4 -f "*" -w "*:*")
+   
+    p-installauto.mybin
+This is for Installation of the Auto Login for Specific Apps
+   
