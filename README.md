@@ -1,4 +1,4 @@
-# Brainfuck Tunnel - Psiphon Pro Go Version - SploitMod/Dtruth
+# Psiphon - SploitMod/Dtruth - BF Tunnel
 
 Read Everything here man
 
@@ -23,23 +23,32 @@ Method 2
 
 Method 3 (Already have the Zip and you have root file browsing access)
 -------
-# Drop the Zip in to the below folder
-    /data/data/com.termux/files/usr/bin/
+**# Drop the Zip in to the Below Folder**
 
-# Change directory to the bin folder
+        /data/data/com.termux/files/usr/bin/
+
+
+**# Change directory to the bin folder**
+
     cd /data/data/com.termux/files/usr/bin/
 
-# unzip the shit yo
+**# unzip the shit yo**
+
     unzip psiphon.zip && chmod +x * 
 
-## Manually activate the tunnel (You can create a script to do this, maybe we do it later)
+**## Manually activate the tunnel (You can create a script to do this, maybe we do it later)**
+
     tun -c 4 -tw 12 -r us -l 250 -f "*" -w "*:*"
 
-#### SPECIFIC FOR SOCKSDROID ONLY
-# Move the auto script to a new name of login
+
+**### SPECIFIC TO SOCKSDROID ###**
+----
+**# Move the auto script to a new name of login**
+
     mv auto login
 
-# Optionally then type below to launch (This is currently for SocksDroid)
+**Optionally then type the below command to launch (This is specific to SocksDroid)**
+----
     login 
 
 
@@ -61,3 +70,4 @@ Note 3 - OpenVPN for Android
 The problem with Psiphon is that it has port limitations (This is Psiphons issue) and Psiphon only allows so many ports to be able to get out on. So by utilizing Proxifier, DroidProxy, SocksDroid, Socks2Tun, Etc... then the apps that you then Proxy through Psiphon are at the mercy of whatever Psiphon allows to be opened. For Standard Internet Browsing this isn't an issue, but for Voice Service apps that use UDP protocols or other ports outside of Psiphons allowed range, this is a major issue.
 
 So if we then use OpenVPN to tunnel Via Port 443 (One of Psiphons Allowed Ports) to a 443 Capable VPN service (Like NordVPN) we then are Double VPN'd, meaning that the "OpenVPN for Android" app initiates a connection through the Psiphon Proxy address at 127.0.0.1 on Port 3080, connects to NordVPN and then Every Single App is then Directly tunneled through NordVPN as if they are directly connected to a very secure internet connection, and no longer at the mercy of Psiphon
+# 
