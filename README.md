@@ -40,32 +40,49 @@ Method 3 (Already have the Zip and you have root file browsing access)
 
     tun -c 4 -tw 6 -r us -l 4 -f "*" -w "*:*"
 
+### Commands (In the /data/data/com.termux/files/usr/bin directory)
 
-**### SPECIFIC TO SOCKSDROID ###**
+    p-cleanup.mybin
+This is for cleaning up the entire installation (Removing it)
+
+    p-menu.mybin
+This is a general menu for manually starting the tunnel with a few options right now
+
+    p-auto-tunvar.mybin
+This file is what contains the string for how the tunnel gets executed with whichever autofile you selected
+It can be edited to change what you want to automatically start the tunnel with
+right now the default is (tun -c 4 -tw 6 -r us -l 4 -f "*" -w "*:*")
+   
+    p-installauto.mybin
+(See Below)
+   
+**### Auto Start Option ###**
 ----
-**# Move the auto script to a new name of login**
+Termux will automatically look for a binar executable file called "login".
+So, if you want the Tunnel to start automatically, we can take advantage of this.
 
-    mv auto login
+# USAGE:
+    p-installauto.mybind   	
+This installs the Auto System for Whichever app you have installed and It Also has a remove option to remove the system
 
-**Optionally then type the below command to launch (This is specific to SocksDroid)**
+
+
+Note 1 - ### Socks5 IP address and Port
 ----
-    login 
 
-
-Note 1 - ### SOCKSDROID
-----
-
-- Use SocksDroid to redirect all connection to this Tunnel (Socks 5 Port 3080)
-- Exclude Termux!
+- The Psiphon Tunnel will start on the IP address of 127.0.0.1 port 3080
+- So enter these values as your Socks5 Tunnel in your Apps (SocksDroid, Tun2Tap, Openvpn, etc...)
+- AND MAKE SURE and Exclude Termux in those apps!
 
 Note 2 - OpenVPN for Android
 ----
-We will be implimenting the use of "Open VPN for Android" instead
+We will be implimenting the use of "Open VPN for Android". Currently it has been tested and works
 Download Here: https://github.com/schwabe/ics-openvpn/releases/download/v0.7.61/ics-openvpn-0.7.61.apk
 
-You can setup the proxy route in OpenVPN instead of using proxifier for ALL ports to be opened up through a Double VPN tunnel
+You can setup the proxy route in OpenVPN instead of using a General Proxy app for ALL ports to be opened up through a Double VPN tunnel
 
-Note 3 - OpenVPN for Android
+
+Note 3 - OpenVPN for Android Extended Notes
 ----
 The problem with Psiphon is that it has port limitations (This is Psiphons issue) and Psiphon only allows so many ports to be able to get out on. So by utilizing Proxifier, DroidProxy, SocksDroid, Socks2Tun, Etc... then the apps that you then Proxy through Psiphon are at the mercy of whatever Psiphon allows to be opened. For Standard Internet Browsing this isn't an issue, but for Voice Service apps that use UDP protocols or other ports outside of Psiphons allowed range, this is a major issue.
 
