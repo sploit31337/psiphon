@@ -1,0 +1,47 @@
+#!/data/data/com.termux/files/usr/bin/bash
+# Script Location should be at /data/data/com.termux/files/usr/bin/
+# Prevents the device from sleeping
+termux-wake-lock
+
+# ========== MENU ==========
+echo "Select tunnel to start:"
+echo "1) Pro Version - Unlimited (In Theory) - 8 Tunnels"
+echo "2) Standard Version - 4Mbps - 6Tunnels"
+echo "3) Standard (5 Mbps) - 6 Tunnels"
+echo "4) Standard (10 Mbps) - 8 Tunnels"
+echo "5) Exit"
+read -p "Enter choice [1-5]: " choice
+
+case $choice in
+  1)
+    TUN_ARGS="-c 4 -tw 6 -r us -l 4 -f '*' -w '*:*'"
+    ;;
+  2)
+    TUN_ARGS="-c 4 -tw 8 -r us -l 0 -f '*' -w '*:*'"
+    ;;
+  3)
+    TUN_ARGS="-c 4 -tw 6 -r us -l 5 -f '*' -w '*:*'"
+    ;;
+  4)
+    TUN_ARGS="-c 4 -tw 8 -r us -l 10 -f '*' -w '*:*'"
+    ;;
+  5)
+    echo "Exiting script."
+    exit 0
+    ;;
+  *)
+    echo "Invalid choice, exiting."
+    exit 1
+    ;;
+esac
+
+# ========== SCRIPT ==========
+# Kill any running processes first
+killall -9 tun 2>/dev/null
+sleep 0.1
+killall -9 psiphon-tunnel-core 2>/dev/null
+sleep 0.1
+
+# Start tunnel with chosen args
+echo "Starting tunnel with: tun $TUN_ARGS"
+tun $TUN_ARGS

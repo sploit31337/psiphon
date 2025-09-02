@@ -1,0 +1,70 @@
+#!/data/data/com.termux/files/usr/bin/bash
+# Cleanup Script for Psiphon/Tun files in Termux (single confirmation with optional zip removal)
+
+INSTALL_DIR="/data/data/com.termux/files/usr/bin"
+STORAGE_DIR="$INSTALL_DIR/storage/psiphon"
+
+echo "=== Psiphon Cleanup Script ==="
+echo "Target directory: $INSTALL_DIR"
+echo "This script will cleanup all the Truth Psiphon System Files: $INSTALL_DIR"
+echo ""
+
+# Ask for confirmation before general cleanup
+read -p "Are you sure you want to delete all main specified files and folders? [y/N]: " confirm
+if [[ ! "$confirm" =~ ^[Yy]$ ]]; then
+  echo "Cleanup aborted by user."
+  exit 0
+fi
+
+# Files to remove
+FILES=(
+  "config.json"
+  "p-autosd.mybin"
+  "p-auto-generic.mybin"
+  "p-autot2t.mybin"
+  "p-autoovpn.mybin"
+  "p-cleanup.mybin"
+  "p-menu.mybin"
+  "p-installauto.mybin"
+  "p-auto-tunvar.mybin"
+  "psiphon-tunnel-core"
+  "tun"
+  "login"
+)
+
+# Remove listed files
+for file in "${FILES[@]}"; do
+  if [ -f "$INSTALL_DIR/$file" ]; then
+    rm -f "$INSTALL_DIR/$file"
+    echo "Removed: $file"
+  else
+    echo "Not found: $file"
+  fi
+done
+
+# Remove everything in storage/psiphon folder
+if [ -d "$STORAGE_DIR" ]; then
+  rm -rf "$STORAGE_DIR"/*
+  echo "Cleaned everything inside: $STORAGE_DIR"
+else
+  echo "Directory not found: $STORAGE_DIR"
+fi
+
+# Ask separately about deleting psiphon.zip files
+echo ""
+read -p "Do you want to delete psiphon.zip files (psiphon.zip, psiphon.zip1, psiphon.zip2)? [y/N]: " delete_zips
+if [[ "$delete_zips" =~ ^[Yy]$ ]]; then
+  for zip in psiphon.zip psiphon.zip1 psiphon.zip2; do
+    if [ -f "$INSTALL_DIR/$zip" ]; then
+      rm -f "$INSTALL_DIR/$zip"
+      echo "Removed: $zip"
+    else
+      echo "Not found: $zip"
+    fi
+  done
+else
+  echo "Skipping deletion of psiphon.zip files."
+fi
+
+echo ""
+echo "=== Cleanup Complete ==="

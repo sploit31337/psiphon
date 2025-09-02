@@ -1,0 +1,54 @@
+#!/data/data/com.termux/files/usr/bin/bash
+# Termux Tunnel Launcher with 5-second cancel option
+
+echo "Psiphon Tunnel with SocksDroid Auto will start in 5 seconds... type C to cancel"
+
+# Read user input with timeout of 5 seconds
+read -t 5 -n 1 cancel_input
+
+if [[ "$cancel_input" =~ [Cc] ]]; then
+    echo "Launch cancelled. Returning to shell prompt."
+else
+    echo "Starting tunnel..."
+	
+	
+# Prevents the device from sleeping.
+termux-wake-lock
+
+# Forcefully stops any running 'tun' processes.
+killall -9 tun
+
+# Pauses the script for a brief moment.
+sleep 0.1
+
+# Forcefully stops any running 'psiphon-tunnel-core' processes.
+killall -9 psiphon-tunnel-core
+
+# Pauses the script for a brief moment.
+sleep 0.1
+
+# Starts the main activity of the 'tun2tap' application.
+am start -n net.typeblog.socks/net.typeblog.socks.MainActivity
+
+# Pauses the script for a brief moment.
+sleep 0.1
+
+# Starts the 'tun' program with specific configuration options:
+# -c 4: Uses 4 connections.
+# -tw 12: Sets a 12-second timeout.
+# -r us: Connects to a server in the U.S.
+# -l 250: Sets a connection limit of 250.
+# -f "*": Filters all traffic.
+# -w "*:*": Allows all destinations and ports.
+# IE - (Pro Only) 
+# tun -c 4 -tw 12 -r us -l 250 -f "*" -w "*:*"
+
+### Source the external file that we can easily edit
+source /data/data/com.termux/files/usr/bin/p-auto-tunvar.mybin
+
+
+fi
+
+    echo "Launch skipped. Returning to shell prompt."
+# Launch the shell
+/data/data/com.termux/files/usr/bin/bash

@@ -1,0 +1,64 @@
+#!/data/data/com.termux/files/usr/bin/bash
+# Script Location should be at /data/data/com.termux/files/usr/bin/
+# Auto Script
+INSTALL_DIR="/data/data/com.termux/files/usr/bin"
+
+echo "=== Auto Login Menu ==="
+echo "1) Install Auto Login - Tun2Tap"
+echo "2) Install Auto Login - SockdSroid"
+echo "3) Install Auto Login - OpenVPN for Android"
+echo "4) Install Auto Login - Generic"
+echo "5) Remove Auto Login"
+echo "6) Exit"
+read -p "Enter choice [1-5]: " choice
+
+case $choice in
+  1)
+    if [ -f "$INSTALL_DIR/p-autot2t.mybin" ]; then
+      cp -f "$INSTALL_DIR/p-autot2t.mybin" "$INSTALL_DIR/login"
+      echo "Installed Auto Login (Tun2Tap)."
+    else
+      echo "File not found: p-autot2t.mybin"
+    fi
+    ;;
+  2)
+    if [ -f "$INSTALL_DIR/p-autosd.mybin" ]; then
+      cp -f "$INSTALL_DIR/p-autosd.mybin" "$INSTALL_DIR/login"
+      echo "Installed Auto Login (SockdSroid)."
+    else
+      echo "File not found: p-autosd.mybin"
+    fi
+    ;;
+  3)
+    if [ -f "$INSTALL_DIR/p-autoovpn.mybin" ]; then
+      cp -f "$INSTALL_DIR/p-autoovpn.mybin" "$INSTALL_DIR/login"
+      echo "Installed Auto Login (OpenVPN for Android)."
+    else
+      echo "File not found: p-autoovpn.mybin"
+    fi
+    ;;
+  4)
+    if [ -f "$INSTALL_DIR/p-auto-generic.mybin" ]; then
+      cp -f "$INSTALL_DIR/p-auto-generic.mybin" "$INSTALL_DIR/login"
+      echo "Installed Auto Login (Generic)."
+    else
+      echo "File not found: p-auto-generic.mybin"
+    fi
+    ;;
+  5)
+    if [ -f "$INSTALL_DIR/login" ]; then
+      rm -f "$INSTALL_DIR/login"
+      echo "Removed Auto Login."
+    else
+      echo "No Auto Login installed (login not found)."
+    fi
+    ;;
+  6)
+    echo "Exiting script."
+    exit 0
+    ;;
+  *)
+    echo "Invalid choice, exiting."
+    exit 1
+    ;;
+esac

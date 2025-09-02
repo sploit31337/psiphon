@@ -1,0 +1,11 @@
+# Starts the 'tun' program with specific configuration options:
+# -c 4: Uses 4 connections.
+# -tw 12: Sets a 12-second timeout.
+# -r us: Connects to a server in the U.S.
+# -l 250: Sets a connection limit of 250.
+# -f "*": Filters all traffic.
+# -w "*:*": Allows all destinations and ports.
+# IE - (Pro Only) 
+# tun -c 4 -tw 12 -r us -l 250 -f "*" -w "*:*"
+
+tun -c 4 -tw 6 -r us -l 4 -f "*" -w "*:*"
