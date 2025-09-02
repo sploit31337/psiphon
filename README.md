@@ -12,16 +12,15 @@ Termux: https://github.com/Termux-Monet/termux-monet/releases/download/v0.119.0-
 SocksDroid: https://github.com/dangvankhanhduy/socksdroid/raw/master/app/release/app-release.apk
 
 
-Method 1
+Method 1 - Not fully tested yet. Do not use
 ---------
     termux-setup-storage && pkg install git -y && git clone https://github.com/sploit31337/psiphon && cd psiphon && chmod +x * && echo 'PATH="$PATH:$HOME/psiphon"' >> $HOME/.bashrc && source $HOME/.bashrc && tun
 
-Method 2
+Method 2 - This assumes you have a active Internet Connection. This is just a 1 liner command to install the Zip if you dont already have it
 -------
-    clear && cd && cd && cd $HOME && cd /data/data/com.termux/files/usr/bin/ && pkg install wget -y && wget https://github.com/sploit31337/psiphon/raw/master/psiphon.zip && unzip psiphon.zip && chmod +x * && mv auto login && login
+    clear && cd && cd && cd $HOME && cd /data/data/com.termux/files/usr/bin/ && pkg install wget -y && wget https://github.com/sploit31337/psiphon/raw/master/psiphon.zip && unzip psiphon.zip && chmod +x *
 
-
-Method 3 (Already have the Zip and you have root file browsing access)
+Method 3 - Assumes you already have the Zip and are Manually Installing this
 -------
 **# Drop the Zip in to the Below Folder**
 
@@ -56,18 +55,18 @@ right now the default is (tun -c 4 -tw 6 -r us -l 4 -f "*" -w "*:*")
     p-installauto.mybin
 (See Below)
    
-**### Auto Start Option ###**
+**### Auto Start Option Information ###**
 ----
-Termux will automatically look for a binar executable file called "login".
+Termux will automatically look for a binary executable file called "login".
 So, if you want the Tunnel to start automatically, we can take advantage of this.
 
 # USAGE:
     p-installauto.mybin
 This installs the Auto System for Whichever app you have installed and It Also has a remove option to remove the system
+It will install one of the auto files by simply copying it to a new file called "login"
 
 
-
-Note 1 - ### Socks5 IP address and Port
+Note 1 - ### Socks5 IP address and Port Information
 ----
 
 - The Psiphon Tunnel will start on the IP address of 127.0.0.1 port 3080
