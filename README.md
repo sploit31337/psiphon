@@ -7,9 +7,11 @@ Requirements
 **Android**
 
 
-Termux: https://github.com/Termux-Monet/termux-monet/releases/download/v0.119.0-b1-36/termux-app_v0.119.0-b1-36+apt-android-7-github-debug_universal.apk
+Termux (Mandatory): https://github.com/Termux-Monet/termux-monet/releases/download/v0.119.0-b1-36/termux-app_v0.119.0-b1-36+apt-android-7-github-debug_universal.apk
 
-SocksDroid: https://github.com/dangvankhanhduy/socksdroid/raw/master/app/release/app-release.apk
+SocksDroid (Recommended) : https://github.com/dangvankhanhduy/socksdroid/raw/master/app/release/app-release.apk
+
+OpenVPN for Android (Best): https://github.com/schwabe/ics-openvpn/releases/download/v0.7.61/ics-openvpn-0.7.61.apk
 
 ---------------------------------------------------------------------------
 
