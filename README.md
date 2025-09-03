@@ -106,16 +106,18 @@ Note 4 - Secondary Command Reference (Edit this later to update to newer Stuff)
 
     p-menu.mybin
 This is a general menu for manually starting the tunnel with a few options right now
-
-    p-auto-tunvar.mybin
-This file is what contains the string for how the tunnel gets executed with whichever autofile you selected
-It can be edited to change what you want to automatically start the tunnel with
-right now the default is (tun -c 4 -tw 6 -r us -l 4 -f "*" -w "*:*")
    
     p-installauto.mybin
 This is for Installation of the Auto Login for Specific Apps
 
+# Use a Editor to Edit this File if you want to change the Auto Tunnel Command
+    p-auto-tunvar.mybin
+This file is what contains the string for how the tunnel gets executed with whichever autofile you selected
+It can be edited to change what you want to automatically start the tunnel with
+right now the default is (tun -c 4 -tw 6 -r us -l 4 -f "*" -w "*:*")
 
+
+# Installation Removal
     p-cleanup.mybin
 This is for cleaning up the entire installation (Removing it)
 
